@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React tutorial</title>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    </head>
+    <body>
+        <script type="text/babel">
+            //function level scope
+            var a = 99;
+            if (true) {
+                var a = 100;
+                console.log(a);
+            }
+            console.log(a);
+            
+            // let => block-level scope
+            var d = 99;
+            if (true) {
+                let d = 100;
+                console.log(d);
+            }
+            
+            console.log(d);
+        </script>
+    </body>
+</html>
