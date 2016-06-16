@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React tutorial</title>
+        <script src="https://fb.me/react-15.1.0.js"></script>
+        <script src="https://fb.me/react-dom-15.1.0.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            var CounterComponent = React.createClass({
+                sumarUno: function() {
+                    this.setState({
+                       count: this.state.count + 1
+                    });
+                },
+                sumarCinco: function() {
+                    this.setState({
+                       count: this.state.count + 5
+                    });
+                },
+                sumarDiez: function() {
+                    this.setState({
+                       count: this.state.count + 10
+                    });
+                },
+                getInitialState: function() {
+                    return {
+                        count: 0
+                    }; 
+                },
+                render: function() {
+                    return (
+                        <div>
+                            <h1>Count: {this.state.count}</h1>
+                            <button onClick={this.sumarUno}>Sumar 1</button>
+                            <button onClick={this.sumarCinco}>Sumar 5</button>
+                            <button onClick={this.sumarDiez}>Sumar 10</button>
+                        </div>
+                    );
+                }            
+            });
+            
+            ReactDOM.render (
+                <CounterComponent />,
+                document.getElementById('app')
+            );
+        </script>
+    </body>
+</html>
