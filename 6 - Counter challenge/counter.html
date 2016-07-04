@@ -15,6 +15,14 @@
                        count: this.state.count + cantidad
                     });
                 },
+                getDefaultProps: function() {
+                    return {
+                        valueOne: 1,
+                        valueTwo: 5,
+                        valueThree: 10,
+                        text: "Sumar"
+                    };
+                },
                 getInitialState: function() {
                     return {
                         count: 0
@@ -24,16 +32,25 @@
                     return (
                         <div>
                             <h1>Count: {this.state.count}</h1>
-                            <button onClick={this.sumar.bind(this, 1)}>Sumar 1</button>
-                            <button onClick={this.sumar.bind(this, 5)}>Sumar 5</button>
-                            <button onClick={this.sumar.bind(this, 10)}>Sumar 10</button>
+                            <Button clickHandler={this.sumar.bind(this, this.props.valueOne)} value={this.props.valueOne}
+                                text={`${this.props.text} ${this.props.valueOne}`} />
+                            <Button clickHandler={this.sumar.bind(this, this.props.valueTwo)} value={this.props.valueTwo}
+                                text={`${this.props.text} ${this.props.valueTwo}`} />
+                            <Button clickHandler={this.sumar.bind(this, this.props.valueThree)} value={this.props.valueThree}
+                                text={`${this.props.text} ${this.props.valueThree}`} />
                         </div>
                     );
                 }            
             });
             
+            var Button = function(props) {
+                return (
+                    <button onClick={props.clickHandler}>{props.text}</button>
+                );
+            };
+
             ReactDOM.render (
-                <CounterComponent />,
+                <CounterComponent valueOne={333} />,
                 document.getElementById('app')
             );
         </script>
