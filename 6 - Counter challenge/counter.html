@@ -10,19 +10,9 @@
         <div id="app"></div>
         <script type="text/babel">
             var CounterComponent = React.createClass({
-                sumarUno: function() {
+                sumar: function(cantidad) {
                     this.setState({
-                       count: this.state.count + 1
-                    });
-                },
-                sumarCinco: function() {
-                    this.setState({
-                       count: this.state.count + 5
-                    });
-                },
-                sumarDiez: function() {
-                    this.setState({
-                       count: this.state.count + 10
+                       count: this.state.count + cantidad
                     });
                 },
                 getInitialState: function() {
@@ -34,9 +24,9 @@
                     return (
                         <div>
                             <h1>Count: {this.state.count}</h1>
-                            <button onClick={this.sumarUno}>Sumar 1</button>
-                            <button onClick={this.sumarCinco}>Sumar 5</button>
-                            <button onClick={this.sumarDiez}>Sumar 10</button>
+                            <button onClick={this.sumar.bind(this, 1)}>Sumar 1</button>
+                            <button onClick={this.sumar.bind(this, 5)}>Sumar 5</button>
+                            <button onClick={this.sumar.bind(this, 10)}>Sumar 10</button>
                         </div>
                     );
                 }            
