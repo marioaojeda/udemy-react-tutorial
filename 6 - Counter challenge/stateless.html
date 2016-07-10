@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React tutorial</title>
+        <script src="https://fb.me/react-15.1.0.js"></script>
+        <script src="https://fb.me/react-dom-15.1.0.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            var TaskList = React.createClass({
+                getInitialState: function() {
+                    return {
+                        tasks: [
+                            { name: "Task1", id: 1 },
+                            { name: "Task2", id: 2 },
+                            { name: "Task3", id: 3 }
+                        ]
+                    };
+                },
+                render: function() {
+                    return (
+                        <ul>
+                            {this.state.tasks.map(function(value){
+                                return <Task taskName={value.name} key={value.id} />;
+                            })}
+                        </ul>
+                        );
+                }
+            });
+
+            var Task = function(props)  {
+                   return (
+                       <li>{props.taskName}</li>
+                    );
+               };
+
+            ReactDOM.render(
+                <TaskList />,
+                document.getElementById('app')
+                );
+        </script>
+    </body>
+</html>
